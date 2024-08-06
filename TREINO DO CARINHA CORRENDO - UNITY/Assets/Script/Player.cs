@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     }
 
-    //Trecho que "ativa" a linha que faz o personagem se mover para os lados.
+    //Método que "ativa" a linha que faz o personagem se mover para os lados.
     public void Update()
     {
         direction = Input.GetAxis("Horizontal");
