@@ -7,9 +7,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+  
 
     [SerializeField] Rigidbody2D rigidbody2D;
-    float direction, speed = 10
+    float direction, speed = 10;
+
+    bool jumping, onGround;
+    [SerializeField] LayerMask groundMask;
 
     //Método que faz o carinha se mover e impede que o player saia dos limites da tela.
     public void Move()
@@ -38,6 +42,49 @@ public class Player : MonoBehaviour
         direction = Input.GetAxis("Horizontal");
 
         Move();
+
+        //Nesta parte verificamos que o jogador pulou.
+        //Checar se a tecla foi para baixo
+
+        CheckGround();
+
+       
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+            jumping = true; 
+
+        }
+
+        //Checar se a tecla foi para cima
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            jumping = false; //Verificação se os dois métodos de pulo funcionaram.
+        }
+
     }
+
+    private void Jump() //Identifica o pulo(normal) do jogador.
+    {
+        if  (onGround)
+        {
+            rigidbody2D.velocity = new Vector2(0, 8);
+        }
+        
+    }
+
+    private void CheckGround() 
+    {
+        onGround = Physics2D.OverlapCircle(transform.position, 0.2f, groundMask); // Cria um circulo (OverLapCircle), que tem o raio de 0.2f, e verifica se está em contato com a Layer groundMask.
+    }
+
+   
+
+  
+
+    
+
+
 
 }
