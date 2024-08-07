@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
        
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Jump();
             jumping = true; 
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         }
 
         //Checar se a tecla foi para cima
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             jumping = false; //Verificação se os dois métodos de pulo funcionaram.
         }
