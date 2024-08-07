@@ -76,7 +76,14 @@ public class Player : MonoBehaviour
 
     private void CheckGround() 
     {
-        onGround = Physics2D.OverlapCircle(transform.position, 0.2f, groundMask); // Cria um circulo (OverLapCircle), que tem o raio de 0.2f, e verifica se está em contato com a Layer groundMask.
+
+        Vector2 offset = new Vector2(0, -0.5f); //Atribuindo o X = 0 e Y = 0.5f para Vector2 offset [que é uma variável].
+
+        Vector2 checkPosition = (Vector2)transform.position + offset; //fazendo transform.position [position é um Vector3 e está sendo convertido para Vector2] + offset, essa conta está sendo colocada dentro da variável checckPosition.
+
+        onGround = Physics2D.OverlapCircle(checkPosition, 0.2f, groundMask); // Cria um circulo (OverLapCircle), que tem o raio de 0.2f, e verifica se está em contato com a Layer groundMask.
+
+        
     }
 
    
