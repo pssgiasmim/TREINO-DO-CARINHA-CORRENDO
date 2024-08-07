@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public void Move()
     {
         //Linha que faz o personagem se mover para os lados.
-        rigidbody2D.velocity = new Vector2(direction * speed, 0);
+        rigidbody2D.velocity = new Vector2(direction * speed, rigidbody2D.velocity.y);
 
         //Trecho que impede que o player (o carinha) saia dos limites da tela.
         if (transform.position.x < GameManager.instance.ScreenBounds.x * -1)
