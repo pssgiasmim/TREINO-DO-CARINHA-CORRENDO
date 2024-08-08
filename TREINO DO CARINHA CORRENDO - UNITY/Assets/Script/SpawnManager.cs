@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject moeda;
     public int quantMoeda;
     float spawnRange = 3;//Essa variável determina quão longe as moedas pode ser instanciadas.
-    
+    int novasMoedas; 
 
     //Método que ativa o Método SPAWN que é onde está instanciando. 
     public void Start()
@@ -39,8 +39,25 @@ public class SpawnManager : MonoBehaviour
 
         }
 
+        novasMoedas = quantMoeda;
+
 
     }
 
+    public void MoedaColetada()
+    {
+        novasMoedas--;
+    }
+
+    /*public void CoinCollected()
+    {
+        coinsRemaining--;
+        if (coinsRemaining <= 0)
+        {
+            SpawnCoins(initialNumberOfCoins); // Instancia novas moedas após coletar todas
+        }
+    }
+    */
+}
     
 }
