@@ -86,11 +86,25 @@ public class Player : MonoBehaviour
         
     }
 
-   
+    //Método para quando o Player colidir com a moeda, aumentar o score e a moeda sumir da cena.
+    public void OnTriggerEnter2D(Collider2D collision)//Neste caso, o "collision" é a moeda
+    {
+        if (collision.CompareTag("Player") == true)
+        {
+            //Acrescentando Score de instance de GameManager + o value, ao, Score.instance.GameManager
+             GameManager.instance.Score = GameManager.instance.Score + 10;
 
-  
+            //Método do UIManager para atualizar o texto de Score.
+             UIManager.instance.UpdateScoreText();
 
-    
+            //Método para destruir o "collision" que é a moeda
+            Destroy(collision.gameObject);
+        }
+    }
+
+
+
+
 
 
 
